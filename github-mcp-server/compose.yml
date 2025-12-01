@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  github-mcp-server:
+    image: ghcr.io/github/github-mcp-server
+    stdin_open: true   # equivalent to -i
+    tty: false
+    environment:
+      GITHUB_PERSONAL_ACCESS_TOKEN: "your_token_here"
+      GITHUB_TOOLSETS: "repos,issues,pull_requests,actions,code_security,experiments"
+    restart: "no"
