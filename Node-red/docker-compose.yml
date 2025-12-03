@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  nodered:
+    image: nodered/node-red:latest
+    container_name: nodered
+    restart: unless-stopped
+    ports:
+      - "1880:1880"
+    environment:
+      - TZ=UTC
+      # Optional: secure Node-RED editor
+      # - NODE_RED_ENABLE_SAFE_MODE=false
+    volumes:
+      # Local directory for flows + persistent data
+      - ./data:/data
+
+volumes:
+  nodered_data:
+    driver: local
